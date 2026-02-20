@@ -1,0 +1,23 @@
+[project]
+name = "xdns"
+version = "0.1.0"
+description = "DNS 解析管理命令行工具，支持多种 DNS 服务商"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "dns-lexicon>=3.0.0",
+    "click>=8.0.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+aliyun = ["dns-lexicon[alicloud]"]
+cloudflare = ["dns-lexicon[cloudflare]"]
+all = ["dns-lexicon[full]"]
+
+[project.scripts]
+xdns = "xdns.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
